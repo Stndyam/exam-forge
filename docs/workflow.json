@@ -2,8 +2,8 @@
   "schema_version": 1,
   "diagram_type": "workflow",
   "meta": {
-    "title": "考试脱敏器 · 出卷与刷题闭环",
-    "output": "考试脱敏器-工作流-v2.html",
+    "title": "考试锻造器 · 出卷与刷题闭环",
+    "output": "考试锻造器-工作流-v2.html",
     "quality_profile": "showcase",
     "viewBox": [1180, 640]
   },
