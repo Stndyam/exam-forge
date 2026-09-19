@@ -1,0 +1,28 @@
+# 个人数据排除清单
+#
+# 这个仓库里只该有「工具」。下面三类是使用者自己的东西，不该提交。
+
+# 1. 科目规格（含你的课程、教材、老师、偏好）—— 只保留空模板
+exam-paper/specs/*.md
+!exam-paper/specs/_模板.md
+
+# 2. 刷题落盘（你的真实错题、错误次数、薄弱章节）—— 最敏感的一类
+output/
+
+# 3. 你可能顺手放进来的课程资料（通常有版权）
+materials/
+*.ppt
+*.pptx
+*.doc
+*.docx
+*.pdf
+
+# 系统杂物
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 图表的可视化校验快照（体积大，按需本地生成）
+*.visual-check.json
+*.visual-check.html
+*.visual-check.*.png

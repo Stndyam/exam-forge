@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "考试脱敏器 · 出卷与刷题闭环",
+    "output": "考试脱敏器-工作流-v2.html",
+    "quality_profile": "showcase",
+    "viewBox": [1180, 640]
+  },
+  "lanes": [
+    { "id": "intake", "label": "资料入手" },
+    { "id": "forge", "label": "出卷" },
+    { "id": "output", "label": "交付" },
+    { "id": "drill", "label": "刷题与回炉" }
+  ],
+  "phases": [
+    { "id": "p_src", "label": "划界", "fromCol": 0, "toCol": 1 },
+    { "id": "p_forge", "label": "出卷与自筛", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "p_drill", "label": "刷题与回炉", "fromCol": 4, "toCol": 5, "variant": "dashed" }
+  ],
+  "mainPath": ["intake", "confirm", "verify", "answers", "grade", "cycle"],
+  "nodes": [
+    { "id": "intake", "lane": "intake", "col": 0, "type": "backend", "label": "输入自检", "sublabel": "读不到就说读不到" },
+    { "id": "log", "lane": "intake", "col": 5, "type": "database", "label": "错题本", "sublabel": "待确认清单 · 跨会话记忆" },
+    { "id": "confirm", "lane": "forge", "col": 2, "type": "security", "label": "等你确认", "sublabel": "砍题型 = 划停止线", "tag": "硬闸门" },
+    { "id": "verify", "lane": "forge", "col": 4, "type": "backend", "label": "出题 + 自筛", "sublabel": "证据等级 A/B/C/D" },
+    { "id": "answers", "lane": "output", "col": 4, "type": "frontend", "label": "答案与解析", "sublabel": "题量声明锁定" },
+    { "id": "grade", "lane": "drill", "col": 4, "type": "security", "label": "判卷", "sublabel": "pass / luna / 争" },
+    { "id": "cycle", "lane": "drill", "col": 5, "type": "messagebus", "label": "错题循环", "sublabel": "全对才停" }
+  ],
+  "edges": [
+    { "from": "intake", "to": "confirm", "variant": "emphasis", "route": "bottom-channel" },
+    { "from": "confirm", "to": "verify", "variant": "emphasis", "route": "straight" },
+    { "from": "verify", "to": "answers", "variant": "emphasis" },
+    { "from": "answers", "to": "grade", "variant": "emphasis", "route": "drop", "fromSide": "bottom", "toSide": "top" },
+    { "from": "grade", "to": "cycle", "variant": "emphasis" },
+    { "from": "cycle", "to": "log", "variant": "dashed", "label": "记错题与质疑" },
+    { "from": "log", "to": "confirm", "role": "return", "label": "错得越多下轮越加题" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "三根轴",
+      "items": [
+        "知识界限 = 资料里出现的知识点并集，没喂进来的不许考",
+        "知识点不变、题型尽量保留；砍题型是用户的停止线",
+        "出卷与刷题完全解耦，可直接消费外部卷子"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "可验证性",
+      "items": [
+        "内部完成的步骤必须留一个用户看得见的产物",
+        "知识界限计数 · 题量声明 · 加权说明，三者同源",
+        "完整编号贯通：A卷-12 / A卷-W3 / 直出-20260919-03"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "诚实即防线",
+      "items": [
+        "输入自检：读不到就说读不到，绝不靠文件名猜",
+        "证据等级 A/B/C/D，D 级必标「建议考前确认」",
+        "写盘失败时如实说，不假装存了"
+      ]
+    }
+  ]
+}
