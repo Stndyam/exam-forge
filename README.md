@@ -1,5 +1,9 @@
 # 考试锻造器 · exam-forge
 
+[![Built with DeepSeek Harness](https://img.shields.io/badge/built%20with-DeepSeek%20Harness-4D6BFE.svg?logo=deepseek&logoColor=white)](https://github.com/deepseek-ai)
+[![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[![Skill: exam-forge](https://img.shields.io/badge/skill-exam--forge-blue.svg)](exam-forge/SKILL.md)
+
 **一个装在 AI 里的备考工具。** 把你手里那点残缺资料（老师的 PPT、课本片段、同类教材、临时口述的重点）变成一套「知道会考什么」的模拟卷，然后陪你逐题刷到错题全对。
 
 **期末突击能用，当阶段性复习计划也能用。** 它自带剂量调节——错得越多，下一轮加权加题越多。所以短到考前一天、长到一整个学期，用的是**同一套机制**，只是轮数不同。
