@@ -5,6 +5,7 @@
     "title": "考试锻造器 · 出卷与刷题闭环",
     "output": "考试锻造器-工作流-v2.html",
     "quality_profile": "showcase",
+    "generator": "Archify (MIT, tt-a1i) — https://github.com/tt-a1i/archify",
     "viewBox": [1180, 640]
   },
   "lanes": [

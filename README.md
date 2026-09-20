@@ -81,6 +81,10 @@
 
 上图是 [`docs/workflow.html`](docs/workflow.html) 的静态预览（[深色版](docs/workflow-dark.png)）。交互版下载该 HTML 后双击打开，单文件自包含，带明暗主题、缩放、搜索、导出。
 
+**图是用 [Archify](https://github.com/tt-a1i/archify) 生成的**（MIT 许可证，Copyright © 2026 tt-a1i / © 2025 Cocoon AI）。源规格在 [`docs/workflow.json`](docs/workflow.json)，改规格就能重出图。
+
+> 说一句来源是本分：这张图的**内容**是这个项目的，但**绘制引擎不是**。项目自己的规矩是不伪造来源，这里也一样。
+
 ---
 
 ## 更多文档
